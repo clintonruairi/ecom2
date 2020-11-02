@@ -129,16 +129,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 CART_SESSION_ID = 'cart'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Braintree settings
 BRAINTREE_MERCHANT_ID = 'fn5w6ttcppjdzrj4'
 BRAINTREE_PUBLIC_KEY = '5sr3zrnf8tkxpvcd'
-BRAINTREE_PRIVATE_KEY = os.getenv("BraintreePK")
+BRAINTREE_PRIVATE_KEY = os.getenv("BRAINTREEPK")
 
 BRAINTREE_CONF = braintree.Configuration(
                 braintree.Environment.Sandbox,
